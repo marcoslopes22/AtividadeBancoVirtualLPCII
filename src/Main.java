@@ -3,7 +3,7 @@ import java.io.IOException;
 
 /*
 ===========================================================================================
-ETE PORTO DIGITAL, RECIFE, VII-VX-XXXXII;
+ETE PORTO DIGITAL, RECIFE, VII-IX-XXXXII;
 DESENVOLVIMENTO DE SISTEMAS - MÓDULO II;
 LÓGICA E PENSAMENTO COMPUTACIONAL II - PROFESSOR WALDECK;
 
