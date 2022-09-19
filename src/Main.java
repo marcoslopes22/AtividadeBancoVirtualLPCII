@@ -75,18 +75,18 @@ public class Main {
 		int opcaoEscolhida;
 		Scanner scan = new Scanner(System.in);
 		System.out.println("BEM VINDO AO BANCO VIRTUAL PORTINHO");
-		System.out.println("======================================");
+		System.out.println("===================================================================");
 		System.out.println("1 - Depositar");
 		System.out.println("2 - Sacar");
 		System.out.println("3 - Consultar saldo");
 		System.out.println("4 - Consultar extrato");
 		System.out.println("5 - Rendimento");
 		System.out.println("6 - Sair");
-		System.out.println("======================================");
+		System.out.println("===================================================================");
 
 		System.out.print("Digite sua operação: ");
 		opcaoEscolhida = scan.nextInt();
-		System.out.println("======================================");
+		System.out.println("===================================================================\n");
 		return opcaoEscolhida;
 	};
 
@@ -109,8 +109,9 @@ public class Main {
 				saldo += deposito;
 				System.out.printf("\nDepositado com sucesso! Valor: R$ %s reais.\n", deposito);
 				extrato.append("Depósito: R$ "+deposito+" reais | "+dataAtual.format(LocalDateTime.now())+"\n");
+				extrato.append("------------------------------------------------------\n");
 			} else {
-				System.out.print("Valor inválido. Por favor, tente novamente:\n");
+				System.out.print("Valor inválido. Por favor, tente novamente.\n\n");
 			};
 		} while(deposito <= 0);
 	};
@@ -126,28 +127,29 @@ public class Main {
 				saldo -= saque;
 				System.out.printf("Saque de R$ %s reais efetuado com sucesso!\n", saque);
 				extrato.append("Saque: R$ "+saque+" reais | "+dataAtual.format(LocalDateTime.now())+"\n");
+				extrato.append("------------------------------------------------------\n");
 				break;
 			} else {
-				System.out.println("Saque Inválido! Por favor, tente novamente.");
+				System.out.println("Saque Inválido! Por favor, tente novamente.\n");
 			};
 		} while(saque > saldo || saque <= 0);
 	};
 
 	/* CONSULTAR SALDO; */
 	public static void ConsultarSaldo(){
-		System.out.printf("O seu saldo é de R$ %s reais\n", saldo);
+		System.out.printf("O seu saldo é de R$ %s reais\n", String.format("%.2f", saldo));
 	};
 
 	/* CONSULTAR HISTÓRICO */
 	public static void ConsultarExtrado(){
 		System.out.println("EXTRATO");
-		System.out.println("-------------------------------------");
+		System.out.println("------------------------------------------------------\n");
 		if(extrato.length() <= 0){
 			System.out.println("Sem históricos registrados.");
 		} else {
 			System.out.println(extrato);
 		};
-		System.out.println("=====================================");
+		System.out.println("===================================================================");
 	};
 
 	/* VERIFICAR SE O VALOR GERADO COM O RENDIMENTO JÁ FOI ATRIBUIDO AO SALDO; */
@@ -169,8 +171,7 @@ public class Main {
 				System.out.println("Status: Atribuído!");
 			};
 			float rendimentoProximoMes = rendimento/100*saldo;
-			System.out.println("Previsão do próximo mês: +"+rendimentoProximoMes+" reais");
-			// System.out.printf("Saldo com rendimento: R$ %s reais\n", saldo);
+			System.out.printf("Previsão do próximo mês: + %s reais\n", String.format("%.2f",rendimentoProximoMes));
 		} else {
 			GerenciarRendimento();
 		};
